@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <TextView
+        android:textStyle="bold"
+        android:textColor="black"
+        android:textSize="25sp"
+        android:text="@string/textRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -17,5 +17,6 @@
     <string name="hintPassword">Contraseña</string>
     <string name="hintUsername">Username</string>
     <string name="hintButtonRegister">Registrarse</string>
+    <string name="textRegistro">Registrarse</string>
 
 </resources>

@@ -17,7 +17,7 @@ class UsersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users)
 
-        actionBar.title = "Lista de Usuarios"
+        setTitle("Lista de usuarios")
 
         var dbHelper: DBHelper by Delegates.notNull()
         var db: SQLiteDatabase by Delegates.notNull()

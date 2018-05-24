@@ -41,9 +41,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        val a = actionBar
-        a.title = "Iniciar Sesión"
+        setTitle("Iniciar Sesión")
 
         txtRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

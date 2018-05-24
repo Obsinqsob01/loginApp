@@ -24,10 +24,12 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "login.db", null, 1
             "${ Password} varchar(50) NOT NULL);"
 
     override fun onCreate(db: SQLiteDatabase?) {
+//        db!!.execSQL("DROP TABLE users")
         db!!.execSQL(DATABASE_CREATE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+
     }
 
     fun getUsers(): ArrayList<User> {

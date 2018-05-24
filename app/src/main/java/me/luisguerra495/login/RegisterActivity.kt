@@ -16,13 +16,15 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        actionBar.title = "Registro"
+        setTitle("Registro")
 
         var dbHelper: DBHelper by Delegates.notNull()
         var db: SQLiteDatabase by Delegates.notNull()
 
         dbHelper = DBHelper(this)
         db = dbHelper.writableDatabase
+
+        db.execSQL("DROP TABLE users")
 
         btnRegister.setOnClickListener {
             val nombre = txtNombre.text

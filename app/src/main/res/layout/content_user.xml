@@ -14,26 +14,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:textSize="15sp"
-            android:id="@+id/txtUsernameUser"
-            android:text=""
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Username: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="20sp"
+                android:id="@+id/txtUsernameUser"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <TextView
-            android:textSize="15sp"
-            android:id="@+id/txtEmailUser"
-            android:text=""
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Email: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="20sp"
+                android:id="@+id/txtEmailUser"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <TextView
-            android:textSize="15sp"
-            android:id="@+id/txtPasswordUser"
-            android:text=""
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Password: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="20sp"
+                android:id="@+id/txtPasswordUser"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
     </LinearLayout>
 

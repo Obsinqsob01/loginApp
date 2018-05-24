@@ -12,7 +12,6 @@ class UserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
-        setSupportActionBar(toolbar)
 
         val user = getIntent().getSerializableExtra("user") as User
 

@@ -37,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
             values.put("password", password.toString())
 
             db.insert("users", null, values)
-            
+
             Toast.makeText(getApplicationContext(), "Registrado correctamente!", Toast.LENGTH_SHORT).show()
 
             txtNombre.text.clear()

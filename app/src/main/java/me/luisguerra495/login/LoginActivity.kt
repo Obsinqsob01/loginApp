@@ -50,6 +50,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         email_sign_in_button.setOnClickListener {
+            email.text.clear()
+            password.text.clear()
+
             val intent = Intent(this, UsersActivity::class.java)
 
             startActivity(intent)

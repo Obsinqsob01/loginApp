@@ -16,6 +16,8 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        actionBar.title = "Registro"
+
         var dbHelper: DBHelper by Delegates.notNull()
         var db: SQLiteDatabase by Delegates.notNull()
 
@@ -31,10 +33,10 @@ class RegisterActivity : AppCompatActivity() {
             val query = "INSERT INTO users(nombre, username, email, password) VALUES ('$nombre', '$username', '$email', '$password');"
 
             val values = ContentValues()
-            values.put("nombre", nombre as String)
-            values.put("username", username as String)
-            values.put("email", email as String)
-            values.put("password", password as String)
+            values.put("nombre", nombre.toString())
+            values.put("username", username.toString())
+            values.put("email", email.toString())
+            values.put("password", password.toString())
 
             db.insert("users", null, values)
 

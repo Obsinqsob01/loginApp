@@ -24,6 +24,7 @@ import android.widget.TextView
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
 import android.content.Intent
+import android.support.v7.app.ActionBar
 import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_login.*
@@ -41,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val a = actionBar
+        a.title = "Iniciar Sesión"
+
         txtRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
 
@@ -48,7 +52,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         email_sign_in_button.setOnClickListener {
-            Toast.makeText(getApplicationContext(), "Login", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, UsersActivity::class.java)
+
+            startActivity(intent)
         }
     }
 }

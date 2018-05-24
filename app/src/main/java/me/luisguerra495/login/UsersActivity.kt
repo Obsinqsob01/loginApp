@@ -1,5 +1,6 @@
 package me.luisguerra495.login
 
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,8 @@ class UsersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users)
+
+        actionBar.title = "Lista de Usuarios"
 
         var dbHelper: DBHelper by Delegates.notNull()
         var db: SQLiteDatabase by Delegates.notNull()
@@ -36,6 +39,14 @@ class UsersActivity : AppCompatActivity() {
 
             myView.txtNombre.text = user.nombre
             myView.txtEmail.text = user.email
+
+            myView.setOnClickListener {
+                var intent = Intent(applicationContext, UserActivity::class.java)
+
+                intent.putExtra("user", user)
+
+                startActivity(intent)
+            }
 
             return myView
         }

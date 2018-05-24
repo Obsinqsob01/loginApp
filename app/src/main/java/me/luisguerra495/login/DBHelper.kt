@@ -1,6 +1,7 @@
 package me.luisguerra495.login
 
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -27,6 +28,33 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "login.db", null, 1
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+    }
+
+    fun getUsers(): ArrayList<User> {
+        val db = this.writableDatabase
+        val list = ArrayList<User>()
+
+        val cursor: Cursor
+
+        cursor = db.rawQuery("SELECT * FROM user", null)
+
+        if(cursor != null) {
+            if(cursor.count > 0) {
+                cursor.moveToFirst()
+
+                do {
+                    val id = cursor.getInt(cursor.getColumnIndex("_id"))
+                    val nombre = cursor.getString(cursor.getColumnIndex("nombre"))
+                    val username = cursor.getString(cursor.getColumnIndex("username"))
+                    val email = cursor.getString(cursor.getColumnIndex("email"))
+                    val password = cursor.getString(cursor.getColumnIndex("password"))
+
+                    val user = User(id, nombre, username, email, password)
+                    list.add(user)
+                } while(cursor.moveToNext())
+            }
+        }
+        return list
     }
 
 }

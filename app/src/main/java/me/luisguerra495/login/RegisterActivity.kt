@@ -1,5 +1,6 @@
 package me.luisguerra495.login
 
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -35,6 +36,15 @@ class RegisterActivity : AppCompatActivity() {
             txtUsername.text.clear()
             txtEmail.text.clear()
             txtPassword.text.clear()
+
+            finish()
+
+            val intent = Intent(this, UsersActivity::class.java)
+
+            val user = User(0, nombre.toString(), username.toString(), email.toString(), password.toString())
+
+            intent.putExtra("user", user)
+
         }
     }
 }

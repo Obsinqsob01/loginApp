@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UsersActivity"
+    android:background="#141422"
     android:padding="10dp">
 
     <TextView
         android:textSize="25sp"
         android:gravity="center"
         android:text="Lista de usuarios"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

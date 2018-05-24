@@ -24,15 +24,11 @@ class RegisterActivity : AppCompatActivity() {
         dbHelper = DBHelper(this)
         db = dbHelper.writableDatabase
 
-//        db.execSQL("DROP TABLE users")
-
         btnRegister.setOnClickListener {
             val nombre = txtNombre.text
             val username = txtUsername.text
             val email = txtEmail.text
             val password = txtPassword.text
-
-//            val query = "INSERT INTO users(nombre, username, email, password) VALUES ('$nombre', '$username', '$email', '$password');"
 
             val values = ContentValues()
             values.put("nombre", nombre.toString())
@@ -41,9 +37,7 @@ class RegisterActivity : AppCompatActivity() {
             values.put("password", password.toString())
 
             db.insert("users", null, values)
-
-//            db.execSQL(query)
-
+            
             Toast.makeText(getApplicationContext(), "Registrado correctamente!", Toast.LENGTH_SHORT).show()
 
             txtNombre.text.clear()

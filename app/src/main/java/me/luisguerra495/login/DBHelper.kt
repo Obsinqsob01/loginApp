@@ -36,7 +36,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "login.db", null, 1
 
         val cursor: Cursor
 
-        cursor = db.rawQuery("SELECT * FROM user", null)
+        cursor = db.rawQuery("SELECT * FROM users", null)
 
         if(cursor != null) {
             if(cursor.count > 0) {

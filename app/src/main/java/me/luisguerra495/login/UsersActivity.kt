@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.activity_users.*
+import kotlinx.android.synthetic.main.user_layout.view.*
 import kotlin.properties.Delegates
 
 class UsersActivity : AppCompatActivity() {
@@ -30,7 +31,13 @@ class UsersActivity : AppCompatActivity() {
 
     inner class UserAdapter : BaseAdapter {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+            var myView = layoutInflater.inflate(R.layout.user_layout, null)
+            var user = listUsersAdapter[position]
 
+            myView.txtNombre.text = user.nombre
+            myView.txtEmail.text = user.email
+
+            return myView
         }
 
         override fun getItem(position: Int): Any {

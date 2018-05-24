@@ -1,5 +1,6 @@
 package me.luisguerra495.login
 
+import android.content.ContentValues
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
@@ -28,6 +29,9 @@ class RegisterActivity : AppCompatActivity() {
 
             val query = "INSERT INTO users(nombre, username, email, password) VALUES ('$nombre', '$username', '$email', '$password');"
 
+//            val content = ContentValues()
+//            content.put("nombre", nombre)
+
             db.execSQL(query)
 
             Snackbar.make(it, "Registrado correctamente", Snackbar.LENGTH_LONG).show()
@@ -37,13 +41,16 @@ class RegisterActivity : AppCompatActivity() {
             txtEmail.text.clear()
             txtPassword.text.clear()
 
-            finish()
 
             val intent = Intent(this, UsersActivity::class.java)
 
             val user = User(0, nombre.toString(), username.toString(), email.toString(), password.toString())
 
             intent.putExtra("user", user)
+
+            startActivity(intent)
+
+            finish()
 
         }
     }

@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlin.properties.Delegates
 
@@ -29,12 +30,17 @@ class RegisterActivity : AppCompatActivity() {
 
             val query = "INSERT INTO users(nombre, username, email, password) VALUES ('$nombre', '$username', '$email', '$password');"
 
-//            val content = ContentValues()
-//            content.put("nombre", nombre)
+            val values = ContentValues()
+            values.put("nombre", nombre as String)
+            values.put("username", username as String)
+            values.put("email", email as String)
+            values.put("password", password as String)
+
+            db.insert("users", null, values)
 
             db.execSQL(query)
 
-            Snackbar.make(it, "Registrado correctamente", Snackbar.LENGTH_LONG).show()
+            Toast.makeText(getApplicationContext(), "Registrado correctamente!", Toast.LENGTH_SHORT).show()
 
             txtNombre.text.clear()
             txtUsername.text.clear()

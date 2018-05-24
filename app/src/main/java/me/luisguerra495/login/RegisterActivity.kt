@@ -24,6 +24,10 @@ class RegisterActivity : AppCompatActivity() {
         dbHelper = DBHelper(this)
         db = dbHelper.writableDatabase
 
+        tvLogin.setOnClickListener {
+            finish()
+        }
+
         btnRegister.setOnClickListener {
             val nombre = txtNombre.text
             val username = txtUsername.text

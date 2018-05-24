@@ -3,6 +3,8 @@ package me.luisguerra495.login
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlin.properties.Delegates
 
 class RegisterActivity : AppCompatActivity() {
@@ -17,8 +19,22 @@ class RegisterActivity : AppCompatActivity() {
         dbHelper = DBHelper(this)
         db = dbHelper.writableDatabase
 
-        val query = "INSERT INTO users('1', 'luis', 'luisguerra495', 'luisguerra495@gmail.com', 'pass')"
+        btnRegister.setOnClickListener {
+            val nombre = txtNombre.text
+            val username = txtUsername.text
+            val email = txtEmail.text
+            val password = txtPassword.text
 
-        db.execSQL(query)
+            val query = "INSERT INTO users(nombre, username, email, password) VALUES ('$nombre', '$username', '$email', '$password');"
+
+            db.execSQL(query)
+
+            Snackbar.make(it, "Registrado correctamente", Snackbar.LENGTH_LONG).show()
+
+            txtNombre.text.clear()
+            txtUsername.text.clear()
+            txtEmail.text.clear()
+            txtPassword.text.clear()
+        }
     }
 }
